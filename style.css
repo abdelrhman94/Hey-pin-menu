@@ -1,0 +1,48 @@
+body {
+  font-family: sans-serif;
+  font-size-adjust: 16px;
+}
+
+#stack {
+  position: absolute;
+  height: 80vh;
+  bottom: 30px;
+  left: 40%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.single-block {
+  border: 1px solid #eee;
+}
+
+.single-block .content {
+  display: flex;
+  padding: 11px 20px 9px;
+}
+
+.single-block .content img {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+}
+
+.single-block .content > div {
+  text-align: left;
+  margin-left: 10px;
+  width: 180px;
+}
+
+.single-block .content h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.single-block .content p {
+  color: #aaa;
+  margin: 0;
+}
