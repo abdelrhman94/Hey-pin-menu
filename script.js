@@ -10,11 +10,12 @@ const listOfItems = [
   'hey.pin.menu',
 ];
 
+const baseScaleChange = 0.033333333;
+const baseTranslateChange = 0.7;
+
 document.addEventListener('DOMContentLoaded', function () {
   const stack = document.getElementById('stack');
   for (let i = 0; i < listOfItems.length; i++) {
-    const baseScaleChange = 0.033333333;
-    const baseTranslateChange = 0.7;
     let div = document.createElement('div');
     div.classList.add('single-block');
     div.innerHTML = `<div class="content">
@@ -29,12 +30,23 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   stack.addEventListener('click', function (e) {
+    e.stopPropagation();
     const blocks = this.querySelectorAll('.single-block');
     blocks.forEach((block, i) => {
       const reverseIndex = blocks.length - 1 - i;
       block.style.transform = `rotate(${reverseIndex * 1.1}deg) translate(${
-        reverseIndex * 0.4
+        reverseIndex * 0.2
       }rem, -${reverseIndex * 4}rem)`;
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    const blocks = document.querySelectorAll('.single-block');
+    blocks.forEach((blocks, i) => {
+      const reverseIndex = listOfItems.length - 1 - i;
+      blocks.style.transform = `scale(${
+        1 - reverseIndex * baseScaleChange
+      }) translateY(-${baseTranslateChange * reverseIndex}rem)`;
     });
   });
 });
