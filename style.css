@@ -13,7 +13,11 @@ body {
 }
 
 .single-block {
-  border: 1px solid #eee;
+  position: absolute;
+  bottom: 0;
+  background: #fff;
+  box-shadow: 0 0 10px #eee;
+  border-radius: 10px;
 }
 
 .single-block .content {
